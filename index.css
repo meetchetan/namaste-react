@@ -1,0 +1,11 @@
+#heading{
+    color: green;
+}
+
+#parent, #header{
+    color: green;
+}
+
+body{
+    background-color: red
+}
