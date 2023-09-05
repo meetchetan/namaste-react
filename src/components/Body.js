@@ -1,5 +1,3 @@
-// 55 minutes
-
 import ResturentCard, { withPromotedlabel } from "./ResturentCard";
 import resList from "../utils/mockData";
 import { useEffect, useState } from "react";
@@ -56,7 +54,7 @@ const Body = () => {
   };
 
   // conditional Reddering - Rendering on the basis of condition is known as conditional rendering
-  // if (listOfResturent.length === 0) {
+  // if (listOfResturent?.length === 0) {
   //   return <Shimmer />;
   // }
 
@@ -69,6 +67,7 @@ const Body = () => {
     );
 
   if (!listOfResturent) {
+    console.log("shimmer called")
     return <Shimmer />;
   }
 
@@ -116,7 +115,7 @@ const Body = () => {
             <Link key={res.info.id} to={"/restaurants/" + res.info.id}>
               {
                 /* if the restaurant is promoted then add a promoted label to it*/
-                res.info.aggregatedDiscountInfoV3.header ? (
+                res.info.aggregatedDiscountInfoV3?.header ? (
                   <RestaurantcardPromoted resData={res} />
                 ) : (
                   <ResturentCard resData={res} />
