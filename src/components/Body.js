@@ -1,11 +1,10 @@
-// 1 hr 20 min minutes
-
 import ResturentCard, { withPromotedlabel } from "./ResturentCard";
 import resList from "../utils/mockData";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
   console.log("body render");
@@ -61,6 +60,9 @@ const Body = () => {
   // }
 
   const onlineStatus = useOnlineStatus();
+
+  const { setUserName, loggedInUser } = useContext(UserContext);
+
   if (onlineStatus === false)
     return (
       <h1>
@@ -69,7 +71,7 @@ const Body = () => {
     );
 
   if (!listOfResturent) {
-    console.log("shimmer called")
+    console.log("shimmer called");
     return <Shimmer />;
   }
 
@@ -109,6 +111,17 @@ const Body = () => {
           >
             Top rated Resturent
           </button>
+        </div>
+        <div className="search m-4 p-4 flex items-center">
+          <label htmlFor="">UserName : </label>
+          <input
+            className="m-2 border border-black"
+            value={loggedInUser}
+            type="text"
+            onChange={(e) => {
+              setUserName(e.target.value);
+            }}
+          />
         </div>
       </div>
       <div className="flex flex-wrap rounded-lg">

@@ -1,4 +1,6 @@
 import { RES_IMG } from "../utils/constants";
+import { useContext } from "react";
+import UserContext from "../utils/UserContext";
 
 const ResturentCard = (props) => {
   const { resData } = props;
@@ -6,6 +8,7 @@ const ResturentCard = (props) => {
   // destructuring const {resName, cusine} = props
   // and pass props
   // console.log(props)
+  const {loggedInUser} = useContext(UserContext)
   return (
     <div className="m-4 p-4 w-[250px] bg-gray-100 rounded-lg hover:bg-gray-200">
       <img
@@ -16,6 +19,7 @@ const ResturentCard = (props) => {
       <h4>{resData.info.cuisines.join(", ")}</h4>
       <h5>{resData.info.avgRating} Star</h5>
       <h5>{resData.info.sla.deliveryTime} minutes</h5>
+      <h5>{loggedInUser}</h5>
     </div>
   );
 };
