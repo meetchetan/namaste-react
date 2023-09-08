@@ -27,3 +27,11 @@ Namaste React cource started...
 # 2 Types of Routing in web app
 - Clint side Routing
 - Server side routing
+
+# Redux toolkit
+- Install @reduxjs/toolkit and react-redux
+- Build our store
+- connect our store to our app
+- Slice (cartSlice)
+- dispatch (action)
+- Selector
