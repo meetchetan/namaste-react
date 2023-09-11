@@ -1,6 +1,3 @@
-// 1 hr 13 minutes
-// revise from 40 minutes
-
 import React, { lazy, Suspense, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
@@ -15,6 +12,7 @@ import Shimmer from "./components/Shimmer";
 import UserContext from "./utils/UserContext";
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
+import Cart from "./components/Cart";
 
 // chunking
 // code spliting
@@ -97,6 +95,10 @@ const appRouter = createBrowserRouter([
         path: "/restaurants/:resId",
         element: <RestaurantMenu />,
       },
+      {
+        path: "/cart",
+        element: <Cart />
+      }
     ],
     errorElement: <Error />,
   },
