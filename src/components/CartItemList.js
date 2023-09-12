@@ -1,16 +1,16 @@
 import React from "react";
 import { RES_IMG } from "../utils/constants";
 import { useDispatch } from "react-redux";
-import { addItem } from "../utils/cartSlice";
+import { removeItem } from "../utils/cartSlice";
 
-const ItemList = ({ items }) => {
+const CartItemList = ({ items }) => {
   console.log(items);
 
   const dispatch = useDispatch();
 
-  const handleAddItem = (item) => {
+  const handleDeleteItem = (item) => {
     // Dispach an action
-    dispatch(addItem(item));
+    dispatch(removeItem(item));
   };
 
   return (
@@ -37,9 +37,9 @@ const ItemList = ({ items }) => {
             <div className="absolute">
               <button
                 className="p-2 mx-20 rounded-lg bg-black text-white shadow-lg"
-                onClick={() => handleAddItem(item)}
+                onClick={() => handleDeleteItem(item)}
               >
-                ➕
+                🗑️
               </button>
             </div>
             <img src={RES_IMG + item.card.info.imageId} alt="" />
@@ -50,4 +50,4 @@ const ItemList = ({ items }) => {
   );
 };
 
-export default ItemList;
+export default CartItemList;
