@@ -70,10 +70,10 @@ const Body = () => {
       </h1>
     );
 
-  // if (!listOfResturent) {
-  //   console.log("shimmer called");
-  //   return <Shimmer />;
-  // }
+  if (!listOfResturent) {
+    console.log("shimmer called");
+    return <Shimmer />;
+  }
 
   return (
     <div className="body">
